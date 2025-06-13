@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What If You Were... - Billionaire Spending Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="forFun2.css">
+    <style>
+        /*  */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">
+                <span class="coin-icon">💰</span>
+                What If You Were...
+                <span class="coin-icon">💰</span>
+            </h1>
+            <p class="subtitle">Choose a billionaire and start spending their fortune!</p>
+            <div class="billionaire-search-bar" style="text-align:center; margin-bottom:20px;">
+                <input type="text" id="billionaireSearchInput" placeholder="Search billionaire name..." style="padding:8px; border-radius:8px; border:1px solid #ccc; width:220px;">
+                <button id="billionaireSearchBtn" style="padding:8px 16px; border-radius:8px; background:#ffd700; border:none; font-weight:bold; cursor:pointer;">Search</button>
+            </div>
+        </div>
+        <div style="text-align:center; margin-bottom:20px;">
+            <select id="categorySelect" style="padding:8px 16px; border-radius:8px; border:1px solid #ccc;">
+                <option value="All">All</option>
+                <option value="Businessman">Businessman</option>
+                <option value="Youtuber">Youtuber</option>
+                <option value="Actor">Actor</option>
+            </select>
+        </div>
+        <div style="text-align:center; margin-bottom:20px;">
+            <button id="addBillionaireBtn" style="padding:8px 16px; border-radius:8px; background:#4caf50; border:none; font-weight:bold; color:#fff; cursor:pointer;">Add Your Billionaire</button>
+        </div>
+        <div id="addBillionaireForm" style="display:none; text-align:center; margin-bottom:20px;">
+            <input type="text" id="newBillionaireName" placeholder="Name" style="padding:6px; border-radius:6px; border:1px solid #ccc; width:140px;">
+            <input type="number" id="newBillionaireNetWorth" placeholder="Net Worth ($)" style="padding:6px; border-radius:6px; border:1px solid #ccc; width:140px;">
+            <input type="text" id="newBillionaireDesc" placeholder="Description" style="padding:6px; border-radius:6px; border:1px solid #ccc; width:180px;">
+            <input type="text" id="newBillionaireIcon" placeholder="Icon (emoji)" style="padding:6px; border-radius:6px; border:1px solid #ccc; width:80px;">
+            <button id="saveBillionaireBtn" style="padding:6px 14px; border-radius:6px; background:#ffd700; border:none; font-weight:bold; cursor:pointer;">Save</button>
+            <label for="newBillionaireCategory">Category:</label>
+            <select id="newBillionaireCategory" required>
+                <option value="Businessman">Businessman</option>
+                <option value="Youtuber">Youtuber</option>
+                <option value="Actor">Actor</option>
+            </select>
+        </div>
+
+        <!-- Carousel wrapper for billionaire cards -->
+        <div class="carousel-wrapper">
+            <div class="billionaire-grid" id="billionaireGrid">
+                <!-- Billionaire cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="balance-section" id="balanceSection" style="display: none;">
+            <div class="balance-title">Your Current Balance</div>
+            <img id="selectedBillionaireImg" class="billionaire-img-large" style="display:none;" />
+            <div class="balance-amount" id="currentBalance">$0</div>
+            <div class="balance-subtitle" id="selectedBillionaire">You are now...</div>
+        </div>
+        
+
+        <div class="shopping-grid" id="shoppingSection" style="display: none;">
+            <div class="category-section">
+                <div class="category-header">
+                    <div class="category-icon">🏠</div>
+                    Real Estate
+                </div>
+                <div class="item-list" id="realEstateItems"></div>
+            </div>
+            <div class="category-section">
+                <div class="category-header">
+                    <div class="category-icon">🚗</div>
+                    Vehicles
+                </div>
+                <div class="item-list" id="vehicleItems"></div>
+            </div>
+            
+            <div class="category-section">
+                <div class="category-header">
+                    <div class="category-icon">📅</div>
+                    Fashion
+                </div>
+                <div class="item-list" id="fashionItem"></div>
+            </div>
+            <div class="category-section">
+                <div class="category-header">
+                    <div class="category-icon">📅</div>
+                    Subscriptions
+                </div>
+                <div class="item-list" id="subscriptionItems"></div>
+            </div>
+            <div class="category-section">
+                <div class="category-header">
+                    <div class="category-icon">💎</div>
+                    Luxury Items
+                </div>
+                <div class="item-list" id="luxuryItems"></div>
+            </div>
+            
+            <div class="category-section">
+                <div class="category-header">
+                    <div class="category-icon">📈</div>
+                    Investments
+                </div>
+                <div class="item-list" id="investmentItems"></div>
+            </div>
+        </div>
+
+        <div class="purchased-section" id="purchasedSection" style="display: none;">
+            <div class="purchased-title">Your Shopping Cart</div>
+            <div id="purchasedList"></div>
+            <button class="reset-button" onclick="resetGame()">Start Over</button>
+        </div>
+    </div>
+
+    <script src="forFun2.js"></script>
+</body>
+</html>

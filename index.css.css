@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffd700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.coin-icon {
+    width: 60px;
+    height: 60px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.subtitle {
+    font-size: 1.3em;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.billionaire-selection {
+    margin-bottom: 30px;
+}
+
+
+.billionaire-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: 100%; /* makes the card fill the grid row */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px; /* adjust as needed for your content */
+    box-sizing: border-box;
+}
+
+.billionaire-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.billionaire-card.selected {
+    border-color: #ffd700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.billionaire-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    background: #ffd700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: #333;
+}
+
+.billionaire-name {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.billionaire-worth {
+    font-size: 1.2em;
+    color: #90EE90;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.billionaire-desc {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.balance-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.balance-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.balance-amount {
+    font-size: 3em;
+    font-weight: bold;
+    color: #90EE90;
+    margin-bottom: 10px;
+}
+
+.balance-subtitle {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+.shopping-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.category-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.category-icon {
+    width: 35px;
+    height: 35px;
+    background: #ffd700;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 18px;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.item-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 1fr); /* 3 rows */
+    grid-auto-columns: 150px;            /* width of each card */
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    /* Optional: hide scrollbar for a cleaner look */
+    scrollbar-width: thin;
+    scrollbar-color: #ffd700 #222;
+}
+.item-card {
+    background: rgba(255, 249, 196, 0.18);
+    border: 1px solid #ffe066;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    width: 140px;        /* Make card narrower */
+    padding: 8px;        /* Less padding inside card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+.item-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.item-img-wrap {
+    width: 120px;         /* Smaller image container */
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+.item-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+}
+.item-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.item-name {
+    font-weight: bold;
+    font-size: 1.05em;
+    margin-bottom: 4px;
+}
+.item-price {
+    color: #b12704;
+    font-weight: bold;
+    font-size: 1em;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;            /* Less gap between buttons and number */
+    margin-top: 4px;
+}
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1em;
+    border-radius: 50%;
+    border: 1px solid #333;
+    background: linear-gradient(to bottom, #ff00ff, #cc00cc);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #6e586e, 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.quantity-btn:hover {
+    background: linear-gradient(to bottom, #ffe0b2, #ffb74d);
+    box-shadow: 0 2px 0 #cc6600, 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+.quantity-btn:active {
+    box-shadow: 0 1px 0 #660066 inset;
+    transform: translateY(2px);
+}
+
+.quantity-display {
+    min-width: 18px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.purchased-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.purchased-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffd700;
+}
+
+.purchased-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.total-spent {
+    border-top: 2px solid #ffd700;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.reset-button {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 20px auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5em;
+    }
+    
+    .shopping-grid {
+        grid-template-columns: 1fr;
+    }
+
+    
+    .billionaire-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .balance-amount {
+        font-size: 2em;
+    }
+}
+.total-spent-amount {
+    color: #5edd65; /* red */
+    font-weight: bold;
+}
+.total-left-amount {
+    color: hsl(0, 100%, 61%); /* green */
+    font-weight: bold;
+}
+.billionaire-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 8px;
+}
+.billionaire-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    pointer-events: none;
+}
+.billionaire-icon {
+    font-size: 3rem;
+    display: block;
+    text-align: center;
+    pointer-events: none;
+}
+/* Add to your forFun2.css */
+.billionaire-img-large {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 16px auto;
+}
+.billionaire-img-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.billionaire-img-wrapper .billionaire-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    background: transparent;
+    z-index: 1;
+    position: relative;
+}
+/* forFun2.css or style.css */
+/* Remove or comment out the carousel-arrow styles to hide swipe buttons */
+.carousel-arrow {
+    display: none !important;
+}
+/* Optionally, remove the hover style as well */
+.carousel-arrow:hover {
+    display: none !important;
+}
+.carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .carousel-arrow {
+            background: #ffd700;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #333;
+            font-size: 1.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 2;
+        }
+        .carousel-arrow:hover {
+            background: #ffec80;
+        }
+        .billionaire-grid {
+            overflow-x: auto;
+            display: flex;
+            gap: 16px;
+            scroll-behavior: smooth;
+            width: 100%;
+            padding-bottom: 8px;
+        }
+
